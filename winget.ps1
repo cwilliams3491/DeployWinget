@@ -48,7 +48,7 @@ if (!(Test-Path $InstallerFolder)) { New-Item -Path $InstallerFolder -ItemType D
         }
     
     $config
-    #At this point you can call winget by using .\Winget Commands
+    #At this point you can call winget by using .\Winget.exe Commands
     
  
     
