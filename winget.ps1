@@ -1,3 +1,6 @@
+#Winget cannot run as a system user. This script will check for a winget install and update winget if it's on an older version that is not functioning(1.0 with OEM windows installs)
+#You can add commands at the bottom with .\Winget [Command]
+
 #WebClient
 $dc = New-Object net.webclient
 $dc.UseDefaultCredentials = $true
@@ -45,5 +48,7 @@ if (!(Test-Path $InstallerFolder)) { New-Item -Path $InstallerFolder -ItemType D
         }
     
     $config
+    #At this point you can call winget by using .\Winget Commands
+    
  
     
