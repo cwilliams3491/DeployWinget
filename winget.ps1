@@ -6,7 +6,8 @@ $dc = New-Object net.webclient
 $dc.UseDefaultCredentials = $true
 $dc.Headers.Add("user-agent", "Inter Explorer")
 $dc.Headers.Add("X-FORMS_BASED_AUTH_ACCEPTED", "f")
-
+$exPolicy = Get-ExecutionPolicy
+Set-ExecutionPolicy Bypass
 #temp folder
 $InstallerFolder = $(Join-Path $env:ProgramData CustomScripts)
 if (!(Test-Path $InstallerFolder)) { New-Item -Path $InstallerFolder -ItemType Directory -Force -Confirm:$false }
@@ -49,6 +50,23 @@ if (!(Test-Path $InstallerFolder)) { New-Item -Path $InstallerFolder -ItemType D
     
     $config
     #At this point you can call winget by using .\Winget.exe Commands
-    
- 
+    Set-Location $wingetpath
+	.\winget.exe uninstall "Groove Music"
+	.\winget.exe uninstall "Microsoft.GamingApp_8wekyb3d8bbwe"
+	.\winget.exe uninstall "Xbox TCUI"
+	.\winget.exe uninstall "Xbox Console Companion"
+	.\winget.exe uninstall "Xbox Game Bar Plugin"
+	.\winget.exe uninstall "Xbox Game Bar"
+	.\winget.exe uninstall "Xbox Identity Provider"
+	.\winget.exe uninstall "Xbox Game Speech Window"
+	.\winget.exe uninstall "O365HomePremRetail - en-us"
+	.\winget.exe uninstall "OneNoteFreeRetail - en-us"
+	.\winget.exe install Google.Chrome
+	.\winget.exe install Mozilla.Firefox
+	.\winget.exe install 7zip.7zip
+	.\winget.exe install Adobe.Acrobat.Reader.64-bit
+	.\winget.exe install Microsoft.Teams
+	.\winget.exe install Microsoft.OneDrive
+	.\winget.exe install --id=Microsoft.Office
+	Set-ExecutionPolicy $exPolicy
     
